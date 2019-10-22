@@ -16,5 +16,10 @@ namespace Zork.Builder
         {
             InitializeComponent();
         }
+
+        private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
