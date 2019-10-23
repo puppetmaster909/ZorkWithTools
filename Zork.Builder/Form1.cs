@@ -31,17 +31,6 @@ namespace Zork.Builder
             
         }
 
-        // Open file from File dropdown
-        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string jsonText = File.ReadAllText(openFileDialog1.FileName);
-                ZorkBuilderFile = JsonConvert.DeserializeObject<ZorkBuilderFile>(jsonText);
-                ZorkBuilderFile.FileName = openFileDialog1.FileName;
-            }
-        }
-
         // Exit from File dropdown
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -54,9 +43,15 @@ namespace Zork.Builder
             
         }
 
+        // Open file from File dropdown
         private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (OpenFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string jsonText = File.ReadAllText(OpenFileDialog.FileName);
+                ZorkBuilderFile = JsonConvert.DeserializeObject<ZorkBuilderFile>(jsonText);
+                ZorkBuilderFile.FileName = OpenFileDialog.FileName;
+            }
         }
 
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,6 +62,23 @@ namespace Zork.Builder
         private void Label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // Save from File dropdown
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        { 
+                //string jsonText = 
+                //SaveFileDialog.FileName = ZorkBuilderFile.FileName;
+        }
+
+        // SaveAs from File dropdown
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //string jsonText =
+                SaveFileDialog.FileName = ZorkBuilderFile.FileName;
+            }
         }
     }
 }

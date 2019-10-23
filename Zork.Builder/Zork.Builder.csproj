@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NodeEditor">
-      <HintPath>..\..\NodeEditorWinforms\MathSample\bin\Debug\NodeEditor.dll</HintPath>
+      <HintPath>..\NodeDLLs\NodeEditor.dll</HintPath>
     </Reference>
     <Reference Include="SampleCommon">
-      <HintPath>..\..\NodeEditorWinforms\MathSample\bin\Debug\SampleCommon.dll</HintPath>
+      <HintPath>..\NodeDLLs\SampleCommon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
