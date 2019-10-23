@@ -13,14 +13,13 @@ namespace Zork.Builder
         [JsonIgnore]
         public string FileName { get; set; }
 
-        public List<String> Rooms { get; set; }
+        // List of objects to hold room data
+        public List<Room> Rooms { get; set; }
 
-        public List<String> Neighbors { get; set; }
-
+        // Default constructor
         public ZorkBuilderFile()
         {
-            Rooms = new List<String>();
-            Neighbors = new List<String>();
+            Rooms = new List<Room>();
         }
     }
 }
