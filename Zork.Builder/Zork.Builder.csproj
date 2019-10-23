@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NodeEditor">
-      <HintPath>..\..\NodeEditorWinforms\MathSample\bin\Debug\NodeEditor.dll</HintPath>
+      <HintPath>..\NodeDLLs\NodeEditor.dll</HintPath>
     </Reference>
     <Reference Include="SampleCommon">
-      <HintPath>..\..\NodeEditorWinforms\MathSample\bin\Debug\SampleCommon.dll</HintPath>
+      <HintPath>..\NodeDLLs\SampleCommon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZorkBuilderFile.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +95,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="node-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3-beta2</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
