@@ -40,7 +40,10 @@ namespace Zork.Builder
         // Print from File dropdown
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+         if (PrintDialog.ShowDialog() == DialogResult.OK)
+            {
+
+            }   
         }
 
         // Open file from File dropdown

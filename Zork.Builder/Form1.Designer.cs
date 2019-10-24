@@ -48,14 +48,15 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.worldNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.RoomListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.LookTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.PrintDialog = new System.Windows.Forms.PrintDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,13 +217,15 @@
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             // 
-            // listBox1
+            // RoomListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 53);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(216, 381);
-            this.listBox1.TabIndex = 2;
+            this.RoomListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.RoomListBox.FormattingEnabled = true;
+            this.RoomListBox.Location = new System.Drawing.Point(12, 53);
+            this.RoomListBox.Name = "RoomListBox";
+            this.RoomListBox.Size = new System.Drawing.Size(216, 381);
+            this.RoomListBox.TabIndex = 2;
             // 
             // label1
             // 
@@ -243,19 +246,23 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Name:";
             // 
-            // textBox1
+            // NameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(276, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 20);
-            this.textBox1.TabIndex = 5;
+            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NameTextBox.Location = new System.Drawing.Point(276, 53);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(156, 20);
+            this.NameTextBox.TabIndex = 5;
             // 
-            // textBox2
+            // LookTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(276, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 20);
-            this.textBox2.TabIndex = 7;
+            this.LookTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LookTextBox.Location = new System.Drawing.Point(276, 79);
+            this.LookTextBox.Name = "LookTextBox";
+            this.LookTextBox.Size = new System.Drawing.Size(156, 20);
+            this.LookTextBox.TabIndex = 7;
             // 
             // label3
             // 
@@ -276,17 +283,21 @@
             this.SaveFileDialog.FileName = "saveFileDialog1";
             this.SaveFileDialog.Filter = "JSON Files (.json)|*.json";
             // 
+            // PrintDialog
+            // 
+            this.PrintDialog.UseEXDialog = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 450);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.LookTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.RoomListBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -322,14 +333,15 @@
         private System.Windows.Forms.ToolStripMenuItem worldNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox RoomListBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.TextBox LookTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog OpenFileDialog;
         private System.Windows.Forms.SaveFileDialog SaveFileDialog;
+        private System.Windows.Forms.PrintDialog PrintDialog;
     }
 }
 
