@@ -14,21 +14,25 @@ namespace Zork.Builder
 {
     public partial class Form1 : Form
     {
-        private ZorkBuilderFile ZorkBuilderFile;
+        private ZorkBuilderFile mCurrentFile;
 
-        /*public ZorkBuilderFile ZorkBuilderFile
+        public ZorkBuilderFile CurrentFile
         {
-            get => mZorkBuilderFile;
+            get => mCurrentFile;
             set
             {
-
+                if (mCurrentFile != value)
+                {
+                    mCurrentFile = value;
+                    //zorkBuilderBindingSource.DataSource = mZorkBuilderFile;
+                }
             }
-        }*/
+        }
 
         public Form1()
         {
             InitializeComponent();
-            
+            CurrentFile = new ZorkBuilderFile();
         }
 
         // Exit from File dropdown
@@ -51,9 +55,9 @@ namespace Zork.Builder
         {
             if (OpenFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string jsonText = File.ReadAllText(OpenFileDialog.FileName);
-                ZorkBuilderFile = JsonConvert.DeserializeObject<ZorkBuilderFile>(jsonText);
-                ZorkBuilderFile.FileName = OpenFileDialog.FileName;
+                CurrentFile.FileName = OpenFileDialog.FileName;
+                CurrentFile.Game = Common.Game.Load(CurrentFile.FileName);
+                int i = 0;
             }
         }
 
@@ -80,7 +84,7 @@ namespace Zork.Builder
             if (SaveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 //string jsonText =
-                SaveFileDialog.FileName = ZorkBuilderFile.FileName;
+                SaveFileDialog.FileName = CurrentFile.FileName;
             }
         }
     }
