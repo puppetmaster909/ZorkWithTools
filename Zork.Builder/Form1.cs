@@ -57,6 +57,11 @@ namespace Zork.Builder
             {
                 CurrentFile.FileName = OpenFileDialog.FileName;
                 CurrentFile.Game = Common.Game.Load(CurrentFile.FileName);
+                foreach (Common.Room room in CurrentFile.Game.World.Rooms)
+                {
+                    CurrentFile.Rooms.Add(room);
+                    RoomListBox.Items.Add(room.Name);
+                }
                 int i = 0;
             }
         }
@@ -86,6 +91,11 @@ namespace Zork.Builder
                 //string jsonText =
                 SaveFileDialog.FileName = CurrentFile.FileName;
             }
+        }
+
+        private void RoomListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NameTextBox.Text = RoomListBox.SelectedItem.ToString();
         }
     }
 }

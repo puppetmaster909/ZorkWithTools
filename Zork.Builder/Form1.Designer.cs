@@ -63,6 +63,8 @@
             this.worldNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.RoomListBox = new System.Windows.Forms.ListBox();
+            this.zorkBuilderFileBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.zorkBuilderFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -81,8 +83,8 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.zorkBuilderFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -253,6 +255,7 @@
             // 
             // toolStripTextBox3
             // 
+            this.toolStripTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox3.Name = "toolStripTextBox3";
             this.toolStripTextBox3.Size = new System.Drawing.Size(100, 23);
             // 
@@ -266,6 +269,7 @@
             // 
             // toolStripTextBox4
             // 
+            this.toolStripTextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox4.Name = "toolStripTextBox4";
             this.toolStripTextBox4.Size = new System.Drawing.Size(100, 23);
             // 
@@ -327,6 +331,7 @@
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
@@ -340,6 +345,7 @@
             // 
             // toolStripTextBox2
             // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             // 
@@ -347,11 +353,21 @@
             // 
             this.RoomListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.RoomListBox.BackColor = System.Drawing.SystemColors.Window;
             this.RoomListBox.FormattingEnabled = true;
             this.RoomListBox.Location = new System.Drawing.Point(12, 53);
             this.RoomListBox.Name = "RoomListBox";
             this.RoomListBox.Size = new System.Drawing.Size(216, 355);
             this.RoomListBox.TabIndex = 2;
+            this.RoomListBox.SelectedIndexChanged += new System.EventHandler(this.RoomListBox_SelectedIndexChanged);
+            // 
+            // zorkBuilderFileBindingSource1
+            // 
+            this.zorkBuilderFileBindingSource1.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
+            // 
+            // zorkBuilderFileBindingSource
+            // 
+            this.zorkBuilderFileBindingSource.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
             // 
             // label1
             // 
@@ -499,10 +515,6 @@
             this.comboBox4.Size = new System.Drawing.Size(72, 21);
             this.comboBox4.TabIndex = 16;
             // 
-            // zorkBuilderFileBindingSource
-            // 
-            this.zorkBuilderFileBindingSource.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,6 +542,7 @@
             this.Text = "Zork Builder";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -593,6 +606,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.BindingSource zorkBuilderFileBindingSource;
+        private System.Windows.Forms.BindingSource zorkBuilderFileBindingSource1;
     }
 }
 
