@@ -57,11 +57,15 @@ namespace Zork.Builder
             {
                 CurrentFile.FileName = OpenFileDialog.FileName;
                 CurrentFile.Game = Common.Game.Load(CurrentFile.FileName);
+
+                int i = 0;
+
                 foreach (Common.Room room in CurrentFile.Game.World.Rooms)
                 {
                     RoomListBox.Items.Add(room.Name);
                 }
-                int i = 0;
+                //RoomListBox.SelectedIndex = 0;
+                //NameTextBox.Text = RoomListBox.SelectedItem.ToString();
             }
         }
 
@@ -97,7 +101,19 @@ namespace Zork.Builder
             string currentSelected = RoomListBox.SelectedItem.ToString();
             NameTextBox.Text = CurrentFile.Game.World.RoomsByName[currentSelected].Name;
             LookTextBox.Text = CurrentFile.Game.World.RoomsByName[currentSelected].Description;
-            
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            /*string currentSelected = RoomListBox.SelectedItem.ToString();
+            CurrentFile.Game.World.RoomsByName[currentSelected].Name = NameTextBox.Text;
+
+            // Refresh section
+            RoomListBox.Items.Clear();
+            foreach (Common.Room room in CurrentFile.Game.World.Rooms)
+            {
+                RoomListBox.Items.Add(room.Name);
+            }*/
         }
     }
 }
