@@ -63,8 +63,6 @@
             this.worldNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.RoomListBox = new System.Windows.Forms.ListBox();
-            this.zorkBuilderFileBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.zorkBuilderFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -83,6 +81,8 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.zorkBuilderFileBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.zorkBuilderFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource)).BeginInit();
@@ -361,14 +361,6 @@
             this.RoomListBox.TabIndex = 2;
             this.RoomListBox.SelectedIndexChanged += new System.EventHandler(this.RoomListBox_SelectedIndexChanged);
             // 
-            // zorkBuilderFileBindingSource1
-            // 
-            this.zorkBuilderFileBindingSource1.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
-            // 
-            // zorkBuilderFileBindingSource
-            // 
-            this.zorkBuilderFileBindingSource.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -396,6 +388,8 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(195, 20);
             this.NameTextBox.TabIndex = 5;
+            this.NameTextBox.Text = " ";
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // LookTextBox
             // 
@@ -514,6 +508,14 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(72, 21);
             this.comboBox4.TabIndex = 16;
+            // 
+            // zorkBuilderFileBindingSource1
+            // 
+            this.zorkBuilderFileBindingSource1.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
+            // 
+            // zorkBuilderFileBindingSource
+            // 
+            this.zorkBuilderFileBindingSource.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
             // 
             // Form1
             // 
