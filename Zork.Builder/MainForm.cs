@@ -119,11 +119,16 @@ namespace Zork.Builder
 
         }
 
+<<<<<<< Updated upstream
         private void AddRoomButton_Click(object sender, EventArgs e)
+=======
+        private void LookTextBox_TextChanged(object sender, EventArgs e)
+>>>>>>> Stashed changes
         {
 
         }
 
+<<<<<<< Updated upstream
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (RoomListBox.SelectedItem != null)
@@ -131,6 +136,11 @@ namespace Zork.Builder
                 int test = RoomListBox.SelectedIndex;
                 ViewModel.Rooms.RemoveAt(test);
             }
+=======
+        private void AddRoomButton_Click(object sender, EventArgs e)
+        {
+            ViewModel.Rooms.Add(new Common.Room() { Name = "New Room", Description = "New Description" }) ;
+>>>>>>> Stashed changes
         }
     }
 }
