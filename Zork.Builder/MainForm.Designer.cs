@@ -1,6 +1,6 @@
 ﻿namespace Zork.Builder
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -63,7 +63,6 @@
             this.worldNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.RoomListBox = new System.Windows.Forms.ListBox();
-            this.zorkBuilderFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -82,14 +81,9 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.GameBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.WorldBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roomsByNameBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GameBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WorldBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomsByNameBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -259,7 +253,6 @@
             // 
             // toolStripTextBox3
             // 
-            this.toolStripTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox3.Name = "toolStripTextBox3";
             this.toolStripTextBox3.Size = new System.Drawing.Size(100, 23);
             // 
@@ -273,7 +266,6 @@
             // 
             // toolStripTextBox4
             // 
-            this.toolStripTextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox4.Name = "toolStripTextBox4";
             this.toolStripTextBox4.Size = new System.Drawing.Size(100, 23);
             // 
@@ -335,7 +327,6 @@
             // 
             // toolStripTextBox1
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
@@ -349,7 +340,6 @@
             // 
             // toolStripTextBox2
             // 
-            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             // 
@@ -358,16 +348,15 @@
             this.RoomListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.RoomListBox.BackColor = System.Drawing.SystemColors.Window;
+            this.RoomListBox.DataSource = this.roomsBindingSource;
+            this.RoomListBox.DisplayMember = "Name";
             this.RoomListBox.FormattingEnabled = true;
             this.RoomListBox.Location = new System.Drawing.Point(12, 53);
             this.RoomListBox.Name = "RoomListBox";
             this.RoomListBox.Size = new System.Drawing.Size(216, 355);
             this.RoomListBox.TabIndex = 2;
+            this.RoomListBox.ValueMember = "Description";
             this.RoomListBox.SelectedIndexChanged += new System.EventHandler(this.RoomListBox_SelectedIndexChanged);
-            // 
-            // zorkBuilderFileBindingSource
-            // 
-            this.zorkBuilderFileBindingSource.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
             // 
             // label1
             // 
@@ -392,6 +381,7 @@
             // 
             this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.NameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomsBindingSource, "Name", true));
             this.NameTextBox.Location = new System.Drawing.Point(276, 53);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(195, 20);
@@ -403,9 +393,11 @@
             // 
             this.LookTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.LookTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomsBindingSource, "Description", true));
             this.LookTextBox.Location = new System.Drawing.Point(276, 79);
+            this.LookTextBox.Multiline = true;
             this.LookTextBox.Name = "LookTextBox";
-            this.LookTextBox.Size = new System.Drawing.Size(195, 20);
+            this.LookTextBox.Size = new System.Drawing.Size(195, 142);
             this.LookTextBox.TabIndex = 7;
             // 
             // LookLabel
@@ -517,24 +509,11 @@
             this.comboBox4.Size = new System.Drawing.Size(72, 21);
             this.comboBox4.TabIndex = 16;
             // 
-            // GameBindingSource
+            // roomsBindingSource
             // 
-            this.GameBindingSource.DataMember = "Game";
-            this.GameBindingSource.DataSource = this.zorkBuilderFileBindingSource;
-            this.GameBindingSource.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            this.roomsBindingSource.DataSource = typeof(Zork.Common.Room);
             // 
-            // WorldBindingSource
-            // 
-            this.WorldBindingSource.DataMember = "World";
-            this.WorldBindingSource.DataSource = this.GameBindingSource;
-            this.WorldBindingSource.CurrentChanged += new System.EventHandler(this.WorldBindingSource_CurrentChanged);
-            // 
-            // roomsByNameBindingSource
-            // 
-            this.roomsByNameBindingSource.DataMember = "RoomsByName";
-            this.roomsByNameBindingSource.DataSource = this.WorldBindingSource;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -557,14 +536,11 @@
             this.Controls.Add(this.RoomListBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Zork Builder";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GameBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WorldBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomsByNameBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -626,10 +602,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.BindingSource zorkBuilderFileBindingSource;
-        private System.Windows.Forms.BindingSource GameBindingSource;
-        private System.Windows.Forms.BindingSource WorldBindingSource;
-        private System.Windows.Forms.BindingSource roomsByNameBindingSource;
+        private System.Windows.Forms.BindingSource roomsBindingSource;
     }
 }
 
