@@ -24,8 +24,9 @@ namespace Zork.Builder
                 if (mCurrentFile != value)
                 {
                     mCurrentFile = value;
-                    //zorkBuilderBindingSource.DataSource = mZorkBuilderFile;
+                    zorkBuilderFileBindingSource.DataSource = mCurrentFile;
                 }
+                //roomsBindingSource.DataSource = mCurrentFile.Game.World.Rooms;
             }
         }
 
@@ -60,10 +61,12 @@ namespace Zork.Builder
 
                 int i = 0;
 
-                foreach (Common.Room room in CurrentFile.Game.World.Rooms)
+                // Programatic section
+                /*foreach (Common.Room room in CurrentFile.Game.World.Rooms)
                 {
                     RoomListBox.Items.Add(room.Name);
-                }
+                }*/
+                
                 //RoomListBox.SelectedIndex = 0;
                 //NameTextBox.Text = RoomListBox.SelectedItem.ToString();
             }
@@ -98,9 +101,11 @@ namespace Zork.Builder
 
         private void RoomListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string currentSelected = RoomListBox.SelectedItem.ToString();
+            // Programatic section
+            /*string currentSelected = RoomListBox.SelectedItem.ToString();
             NameTextBox.Text = CurrentFile.Game.World.RoomsByName[currentSelected].Name;
             LookTextBox.Text = CurrentFile.Game.World.RoomsByName[currentSelected].Description;
+            */
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
@@ -114,6 +119,16 @@ namespace Zork.Builder
             {
                 RoomListBox.Items.Add(room.Name);
             }*/
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WorldBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
