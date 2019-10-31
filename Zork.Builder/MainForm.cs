@@ -12,28 +12,16 @@ using Newtonsoft.Json;
 
 namespace Zork.Builder
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        private ZorkBuilderFile mCurrentFile;
+        private GameViewModel mCurrentFile;
 
-        public ZorkBuilderFile CurrentFile
-        {
-            get => mCurrentFile;
-            set
-            {
-                if (mCurrentFile != value)
-                {
-                    mCurrentFile = value;
-                    zorkBuilderFileBindingSource.DataSource = mCurrentFile;
-                }
-                //roomsBindingSource.DataSource = mCurrentFile.Game.World.Rooms;
-            }
-        }
+        public GameViewModel ViewModel { get; set; }
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-            CurrentFile = new ZorkBuilderFile();
+            ViewModel = new GameViewModel();
         }
 
         // Exit from File dropdown
@@ -56,17 +44,17 @@ namespace Zork.Builder
         {
             if (OpenFileDialog.ShowDialog() == DialogResult.OK)
             {
-                CurrentFile.FileName = OpenFileDialog.FileName;
-                CurrentFile.Game = Common.Game.Load(CurrentFile.FileName);
-
-                int i = 0;
+                ViewModel.FileName = OpenFileDialog.FileName;
+                ViewModel.Game = Common.Game.Load(ViewModel.FileName);
+                roomsBindingSource.DataSource = ViewModel.Rooms;
+                
 
                 // Programatic section
                 /*foreach (Common.Room room in CurrentFile.Game.World.Rooms)
                 {
                     RoomListBox.Items.Add(room.Name);
                 }*/
-                
+
                 //RoomListBox.SelectedIndex = 0;
                 //NameTextBox.Text = RoomListBox.SelectedItem.ToString();
             }
@@ -95,7 +83,7 @@ namespace Zork.Builder
             if (SaveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 //string jsonText =
-                SaveFileDialog.FileName = CurrentFile.FileName;
+                SaveFileDialog.FileName = ViewModel.FileName;
             }
         }
 
