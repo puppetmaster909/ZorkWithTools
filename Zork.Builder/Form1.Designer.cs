@@ -63,6 +63,7 @@
             this.worldNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.RoomListBox = new System.Windows.Forms.ListBox();
+            this.zorkBuilderFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -81,11 +82,14 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.zorkBuilderFileBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.zorkBuilderFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GameBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.WorldBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roomsByNameBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WorldBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsByNameBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -361,6 +365,10 @@
             this.RoomListBox.TabIndex = 2;
             this.RoomListBox.SelectedIndexChanged += new System.EventHandler(this.RoomListBox_SelectedIndexChanged);
             // 
+            // zorkBuilderFileBindingSource
+            // 
+            this.zorkBuilderFileBindingSource.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -509,13 +517,22 @@
             this.comboBox4.Size = new System.Drawing.Size(72, 21);
             this.comboBox4.TabIndex = 16;
             // 
-            // zorkBuilderFileBindingSource1
+            // GameBindingSource
             // 
-            this.zorkBuilderFileBindingSource1.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
+            this.GameBindingSource.DataMember = "Game";
+            this.GameBindingSource.DataSource = this.zorkBuilderFileBindingSource;
+            this.GameBindingSource.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
-            // zorkBuilderFileBindingSource
+            // WorldBindingSource
             // 
-            this.zorkBuilderFileBindingSource.DataSource = typeof(Zork.Builder.ZorkBuilderFile);
+            this.WorldBindingSource.DataMember = "World";
+            this.WorldBindingSource.DataSource = this.GameBindingSource;
+            this.WorldBindingSource.CurrentChanged += new System.EventHandler(this.WorldBindingSource_CurrentChanged);
+            // 
+            // roomsByNameBindingSource
+            // 
+            this.roomsByNameBindingSource.DataMember = "RoomsByName";
+            this.roomsByNameBindingSource.DataSource = this.WorldBindingSource;
             // 
             // Form1
             // 
@@ -544,8 +561,10 @@
             this.Text = "Zork Builder";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zorkBuilderFileBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WorldBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsByNameBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -608,7 +627,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.BindingSource zorkBuilderFileBindingSource;
-        private System.Windows.Forms.BindingSource zorkBuilderFileBindingSource1;
+        private System.Windows.Forms.BindingSource GameBindingSource;
+        private System.Windows.Forms.BindingSource WorldBindingSource;
+        private System.Windows.Forms.BindingSource roomsByNameBindingSource;
     }
 }
 
