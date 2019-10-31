@@ -52,6 +52,14 @@ namespace Zork.Common
                                                                  select (Direction: entry.Key, Room: room))
                                                                  .ToDictionary(pair => pair.Direction, pair => pair.Room);
 
+        /*public bool Remove(Room other)
+        {
+            other.Name = "";
+            other.Description = "";
+
+            return true;
+        }*/
+
         public bool Equals(Room other)
         {
             throw new NotImplementedException();

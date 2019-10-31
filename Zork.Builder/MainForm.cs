@@ -118,5 +118,19 @@ namespace Zork.Builder
         {
 
         }
+
+        private void AddRoomButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (RoomListBox.SelectedItem != null)
+            {
+                int test = RoomListBox.SelectedIndex;
+                ViewModel.Rooms.RemoveAt(test);
+            }
+        }
     }
 }

@@ -63,6 +63,7 @@
             this.worldNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.RoomListBox = new System.Windows.Forms.ListBox();
+            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -72,7 +73,7 @@
             this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.PrintDialog = new System.Windows.Forms.PrintDialog();
             this.AddRoomButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -253,6 +253,7 @@
             // 
             // toolStripTextBox3
             // 
+            this.toolStripTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox3.Name = "toolStripTextBox3";
             this.toolStripTextBox3.Size = new System.Drawing.Size(100, 23);
             // 
@@ -266,6 +267,7 @@
             // 
             // toolStripTextBox4
             // 
+            this.toolStripTextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox4.Name = "toolStripTextBox4";
             this.toolStripTextBox4.Size = new System.Drawing.Size(100, 23);
             // 
@@ -327,6 +329,7 @@
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
@@ -340,6 +343,7 @@
             // 
             // toolStripTextBox2
             // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             // 
@@ -357,6 +361,10 @@
             this.RoomListBox.TabIndex = 2;
             this.RoomListBox.ValueMember = "Description";
             this.RoomListBox.SelectedIndexChanged += new System.EventHandler(this.RoomListBox_SelectedIndexChanged);
+            // 
+            // roomsBindingSource
+            // 
+            this.roomsBindingSource.DataSource = typeof(Zork.Common.Room);
             // 
             // label1
             // 
@@ -431,15 +439,17 @@
             this.AddRoomButton.TabIndex = 8;
             this.AddRoomButton.Text = "Add Room";
             this.AddRoomButton.UseVisualStyleBackColor = true;
+            this.AddRoomButton.Click += new System.EventHandler(this.AddRoomButton_Click);
             // 
-            // button2
+            // DeleteButton
             // 
-            this.button2.Location = new System.Drawing.Point(121, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Delete Room";
-            this.button2.UseVisualStyleBackColor = true;
+            this.DeleteButton.Location = new System.Drawing.Point(121, 415);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(107, 23);
+            this.DeleteButton.TabIndex = 9;
+            this.DeleteButton.Text = "Delete Room";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // comboBox1
             // 
@@ -509,10 +519,6 @@
             this.comboBox4.Size = new System.Drawing.Size(72, 21);
             this.comboBox4.TabIndex = 16;
             // 
-            // roomsBindingSource
-            // 
-            this.roomsBindingSource.DataSource = typeof(Zork.Common.Room);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -526,7 +532,7 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.AddRoomButton);
             this.Controls.Add(this.LookTextBox);
             this.Controls.Add(this.LookLabel);
@@ -593,7 +599,7 @@
         private System.Windows.Forms.ToolStripMenuItem worldNameToolStripMenuItem1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox4;
         private System.Windows.Forms.Button AddRoomButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
