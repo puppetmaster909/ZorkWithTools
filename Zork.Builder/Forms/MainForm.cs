@@ -27,6 +27,7 @@ namespace Zork.Builder
                 {
                     mViewModel = value;
                     gameViewModelBindingSource.DataSource = mViewModel;
+                    IsGameLoaded = mViewModel.Game != null;
                 }
             }
         }
@@ -38,6 +39,13 @@ namespace Zork.Builder
             {
                 isGameLoaded = value;
                 AddRoomButton.Enabled = isGameLoaded;
+                DeleteButton.Enabled = isGameLoaded;
+                NameTextBox.Enabled = isGameLoaded;
+                LookTextBox.Enabled = isGameLoaded;
+                NorthNeighbor.Enabled = isGameLoaded;
+                SouthNeighbor.Enabled = isGameLoaded;
+                EastNeighbor.Enabled = isGameLoaded;
+                WestNeighbor.Enabled = isGameLoaded;
             }
         }
 
@@ -71,16 +79,7 @@ namespace Zork.Builder
                 ViewModel.FileName = OpenFileDialog.FileName;
                 ViewModel.Game = Common.Game.Load(ViewModel.FileName);
                 roomsBindingSource.DataSource = ViewModel.Rooms;
-
-
-                // Programatic section
-                /*foreach (Common.Room room in CurrentFile.Game.World.Rooms)
-                {
-                    RoomListBox.Items.Add(room.Name);
-                }*/
-
-                //RoomListBox.SelectedIndex = 0;
-                //NameTextBox.Text = RoomListBox.SelectedItem.ToString();
+                IsGameLoaded = true;
             }
         }
 
@@ -97,27 +96,43 @@ namespace Zork.Builder
         // Save from File dropdown
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //string jsonText = 
-            //SaveFileDialog.FileName = ZorkBuilderFile.FileName;
+            if (string.IsNullOrEmpty(ViewModel.FileName))
+            {
+                throw new InvalidProgramException("Filename Expected");
+            }
+
+            JsonSerializer serializer = new JsonSerializer
+            {
+                Formatting = Formatting.Indented
+            };
+            using (StreamWriter streamWriter = new StreamWriter(ViewModel.FileName))
+            using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
+            {
+                serializer.Serialize(jsonWriter, ViewModel.Game);
+            }
         }
 
         // SaveAs from File dropdown
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveFileDialog.FileName = ViewModel.FileName;
             if (SaveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //string jsonText =
-                SaveFileDialog.FileName = ViewModel.FileName;
+                JsonSerializer serializer = new JsonSerializer
+                {
+                    Formatting = Formatting.Indented
+                };
+                using (StreamWriter streamWriter = new StreamWriter(SaveFileDialog.FileName))
+                using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
+                {
+                    serializer.Serialize(jsonWriter, ViewModel.Game);
+                }
             }
         }
 
         private void RoomListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Programatic section
-            /*string currentSelected = RoomListBox.SelectedItem.ToString();
-            NameTextBox.Text = CurrentFile.Game.World.RoomsByName[currentSelected].Name;
-            LookTextBox.Text = CurrentFile.Game.World.RoomsByName[currentSelected].Description;
-            */
+            DeleteButton.Enabled = RoomListBox.SelectedItem != null;
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
@@ -150,31 +165,25 @@ namespace Zork.Builder
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (RoomListBox.SelectedItem != null)
-            {
-                int selectedIndex = RoomListBox.SelectedIndex;
-                ViewModel.Rooms.RemoveAt(selectedIndex);
-            }
+            int selectedIndex = RoomListBox.SelectedIndex;
+            ViewModel.Rooms.RemoveAt(selectedIndex);
+            RoomListBox.SelectedItem = ViewModel.Rooms.FirstOrDefault();
         }
 
         private void AddRoomButton_Click(object sender, EventArgs e)
         {
-            if (RoomListBox.SelectedItem != null)
-            {
-                ViewModel.Rooms.Add(new Common.Room() { Name = "New Room", Description = "New Description" });
-            }
-
+            ViewModel.Rooms.Add(new Common.Room("New Room", "New Description", new Dictionary<Common.Directions, string>()));
         }
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*ViewModel.FileName = "";
-            ViewModel.Rooms.Clear();
-            ViewModel.Rooms.Add(new Common.Room() { Name = "New Room", Description = "New Description" });
-            //mGame = new Game();
-            int i = 0;
-            */
             ViewModel = new GameViewModel();
+            roomsBindingSource.DataSource = ViewModel.Rooms;
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DeleteButton_Click(sender, e);
         }
     }
 }

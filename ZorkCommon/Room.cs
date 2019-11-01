@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace Zork.Common
 {
-    public class Room : IEquatable<Room>
+    [JsonConverter(typeof(RoomConverter))]
+    public class Room : IEquatable<Room>//, INotifyPropertyChanged
     {
+        //public event PropertyChangedEventHandler PropertyChanged;
+        
         //[JsonProperty(Order = 1)]
         //public string Name { get; private set; }
+
+        public Room(string name, string description, Dictionary<Directions, string> neighborNames)
+        {
+            Name = name;
+            Description = description;
+            NeighborNames = neighborNames;
+        }
 
         [JsonProperty(Order = 1)]
         public string Name { get; set; }
@@ -18,7 +29,7 @@ namespace Zork.Common
         public string Description { get; set; }
 
         [JsonProperty(PropertyName = "Neighbors", Order = 3)]
-        private Dictionary<Directions, string> NeighborNames { get; set; }
+        public Dictionary<Directions, string> NeighborNames { get; set; }
 
         [JsonIgnore]
         public IReadOnlyDictionary<Directions, Room> Neighbors { get; private set; }
@@ -51,14 +62,6 @@ namespace Zork.Common
                                                                  where room != null
                                                                  select (Direction: entry.Key, Room: room))
                                                                  .ToDictionary(pair => pair.Direction, pair => pair.Room);
-
-        /*public bool Remove(Room other)
-        {
-            other.Name = "";
-            other.Description = "";
-
-            return true;
-        }*/
 
         public bool Equals(Room other)
         {

@@ -37,12 +37,20 @@ namespace Zork.Builder
             }
         }
 
+        public GameViewModel()
+        {
+            Game = new Game();
+            Rooms = new BindingList<Room>(Array.Empty<Room>());
+        }
+
         public GameViewModel(Game game = null)
         {
             Game = game;
         }
 
         public BindingList<Common.Room> Rooms { get; set; }
+
+        public BindingList<Common.Room> Neighbors { get; set; }
 
         private Game mGame;
     }
