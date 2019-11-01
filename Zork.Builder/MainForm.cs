@@ -128,14 +128,28 @@ namespace Zork.Builder
         {
             if (RoomListBox.SelectedItem != null)
             {
-                int test = RoomListBox.SelectedIndex;
-                ViewModel.Rooms.RemoveAt(test);
+                int selectedIndex = RoomListBox.SelectedIndex;
+                ViewModel.Rooms.RemoveAt(selectedIndex);
             }
         }
          
         private void AddRoomButton_Click(object sender, EventArgs e)
         {
-            ViewModel.Rooms.Add(new Common.Room() { Name = "New Room", Description = "New Description" }) ;
+            if (RoomListBox.SelectedItem != null)
+            {
+                ViewModel.Rooms.Add(new Common.Room() { Name = "New Room", Description = "New Description" });
+            }
+            
+        }
+
+        private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewModel = new GameViewModel();
+            /*if (RoomListBox.Items.Count != 0)
+            {
+                RoomListBox.Items.Clear();
+            }*/
+            
         }
     }
 }
