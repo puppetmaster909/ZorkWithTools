@@ -37,19 +37,13 @@ namespace Zork.Builder
             }
         }
 
+        public GameViewModel(Game game = null)
+        {
+            Game = game;
+        }
+
         public BindingList<Common.Room> Rooms { get; set; }
 
         private Game mGame;
-
-        public GameViewModel()
-        {
-            FileName = "";
-            //Game = new Common.Game();
-
-            Rooms.Clear();
-            Rooms.Add(new Room() { Name = "New Room", Description = "New Description" });
-            //mGame = new Game();
-            int i = 0;
-        }
     }
 }
