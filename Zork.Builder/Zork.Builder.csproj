@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Popups\AddRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Popups\AddRoom.Designer.cs">
+      <DependentUpon>AddRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Popups\SetWelcomeMessage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameViewModel.cs" />
+    <EmbeddedResource Include="Forms\Popups\AddRoom.resx">
+      <DependentUpon>AddRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\SetWelcomeMessage.resx">
       <DependentUpon>SetWelcomeMessage.cs</DependentUpon>
     </EmbeddedResource>
