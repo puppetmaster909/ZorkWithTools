@@ -119,6 +119,7 @@
             this.newFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newFileToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.newFileToolStripMenuItem.Text = "New File";
+            this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
             // 
             // openFileToolStripMenuItem
             // 
