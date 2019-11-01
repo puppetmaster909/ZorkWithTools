@@ -14,14 +14,38 @@ namespace Zork.Builder
 {
     public partial class MainForm : Form
     {
-        private GameViewModel mCurrentFile;
+        //public GameViewModel ViewModel { get; set; }
+        private GameViewModel mViewModel;
+        private bool isGameLoaded;
 
-        public GameViewModel ViewModel { get; set; }
+        private GameViewModel ViewModel
+        {
+            get => mViewModel;
+            set
+            {
+                if (mViewModel != value)
+                {
+                    mViewModel = value;
+                    gameViewModelBindingSource.DataSource = mViewModel;
+                }
+            }
+        }
+
+        private bool IsGameLoaded 
+        { 
+            get => isGameLoaded;
+            set
+            {
+                isGameLoaded = value;
+                AddRoomButton.Enabled = isGameLoaded;
+            }
+        }
 
         public MainForm()
         {
             InitializeComponent();
             ViewModel = new GameViewModel();
+            IsGameLoaded = false;
         }
 
         // Exit from File dropdown
@@ -33,10 +57,10 @@ namespace Zork.Builder
         // Print from File dropdown
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         if (PrintDialog.ShowDialog() == DialogResult.OK)
+            if (PrintDialog.ShowDialog() == DialogResult.OK)
             {
 
-            }   
+            }
         }
 
         // Open file from File dropdown
@@ -47,7 +71,7 @@ namespace Zork.Builder
                 ViewModel.FileName = OpenFileDialog.FileName;
                 ViewModel.Game = Common.Game.Load(ViewModel.FileName);
                 roomsBindingSource.DataSource = ViewModel.Rooms;
-                
+
 
                 // Programatic section
                 /*foreach (Common.Room room in CurrentFile.Game.World.Rooms)
@@ -72,9 +96,9 @@ namespace Zork.Builder
 
         // Save from File dropdown
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
-                //string jsonText = 
-                //SaveFileDialog.FileName = ZorkBuilderFile.FileName;
+        {
+            //string jsonText = 
+            //SaveFileDialog.FileName = ZorkBuilderFile.FileName;
         }
 
         // SaveAs from File dropdown
@@ -132,24 +156,25 @@ namespace Zork.Builder
                 ViewModel.Rooms.RemoveAt(selectedIndex);
             }
         }
-         
+
         private void AddRoomButton_Click(object sender, EventArgs e)
         {
             if (RoomListBox.SelectedItem != null)
             {
                 ViewModel.Rooms.Add(new Common.Room() { Name = "New Room", Description = "New Description" });
             }
-            
+
         }
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*ViewModel.FileName = "";
+            ViewModel.Rooms.Clear();
+            ViewModel.Rooms.Add(new Common.Room() { Name = "New Room", Description = "New Description" });
+            //mGame = new Game();
+            int i = 0;
+            */
             ViewModel = new GameViewModel();
-            /*if (RoomListBox.Items.Count != 0)
-            {
-                RoomListBox.Items.Clear();
-            }*/
-            
         }
     }
 }
