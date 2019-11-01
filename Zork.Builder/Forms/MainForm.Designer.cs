@@ -48,9 +48,7 @@
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.welcomeMessageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
             this.worldNameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBox4 = new System.Windows.Forms.ToolStripTextBox();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +61,7 @@
             this.worldNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.RoomListBox = new System.Windows.Forms.ListBox();
+            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -82,10 +81,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.gameViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -248,29 +246,17 @@
             // 
             // welcomeMessageToolStripMenuItem1
             // 
-            this.welcomeMessageToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox3});
             this.welcomeMessageToolStripMenuItem1.Name = "welcomeMessageToolStripMenuItem1";
-            this.welcomeMessageToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
+            this.welcomeMessageToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.welcomeMessageToolStripMenuItem1.Text = "Welcome Message";
-            // 
-            // toolStripTextBox3
-            // 
-            this.toolStripTextBox3.Name = "toolStripTextBox3";
-            this.toolStripTextBox3.Size = new System.Drawing.Size(100, 23);
+            this.welcomeMessageToolStripMenuItem1.Click += new System.EventHandler(this.welcomeMessageToolStripMenuItem1_Click);
             // 
             // worldNameToolStripMenuItem1
             // 
-            this.worldNameToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox4});
             this.worldNameToolStripMenuItem1.Name = "worldNameToolStripMenuItem1";
-            this.worldNameToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
+            this.worldNameToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.worldNameToolStripMenuItem1.Text = "World Name";
-            // 
-            // toolStripTextBox4
-            // 
-            this.toolStripTextBox4.Name = "toolStripTextBox4";
-            this.toolStripTextBox4.Size = new System.Drawing.Size(100, 23);
+            this.worldNameToolStripMenuItem1.Click += new System.EventHandler(this.worldNameToolStripMenuItem1_Click);
             // 
             // cutToolStripMenuItem
             // 
@@ -330,6 +316,7 @@
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
@@ -343,6 +330,7 @@
             // 
             // toolStripTextBox2
             // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             // 
@@ -358,6 +346,10 @@
             this.RoomListBox.Size = new System.Drawing.Size(216, 355);
             this.RoomListBox.TabIndex = 2;
             this.RoomListBox.SelectedIndexChanged += new System.EventHandler(this.RoomListBox_SelectedIndexChanged);
+            // 
+            // roomsBindingSource
+            // 
+            this.roomsBindingSource.DataSource = typeof(Zork.Common.Room);
             // 
             // label1
             // 
@@ -513,10 +505,6 @@
             this.comboBox4.Size = new System.Drawing.Size(72, 21);
             this.comboBox4.TabIndex = 16;
             // 
-            // roomsBindingSource
-            // 
-            this.roomsBindingSource.DataSource = typeof(Zork.Common.Room);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -544,8 +532,8 @@
             this.Text = "Zork Builder";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -594,9 +582,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem welcomeMessageToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox3;
         private System.Windows.Forms.ToolStripMenuItem worldNameToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox4;
         private System.Windows.Forms.Button AddRoomButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.ComboBox comboBox1;
