@@ -407,6 +407,7 @@
             this.LookTextBox.Name = "LookTextBox";
             this.LookTextBox.Size = new System.Drawing.Size(195, 142);
             this.LookTextBox.TabIndex = 7;
+            this.LookTextBox.TextChanged += new System.EventHandler(this.LookTextBox_TextChanged);
             // 
             // LookLabel
             // 
