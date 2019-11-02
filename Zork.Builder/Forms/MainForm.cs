@@ -183,11 +183,11 @@ namespace Zork.Builder
             roomsBindingSource.DataSource = ViewModel.Rooms;
         }
 
-        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        /*private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DeleteButton_Click(sender, e);
-        }
-
+            
+        }*/
+
         private void welcomeMessageToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (SetWelcomeMessageForm setWelcomeMessage = new SetWelcomeMessageForm())
@@ -198,7 +198,7 @@ namespace Zork.Builder
                 }
             }
         }
-
+
         private void worldNameToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (Forms.Popups.SetWorldName setWorldName = new Forms.Popups.SetWorldName())
@@ -208,6 +208,11 @@ namespace Zork.Builder
                     WorldName = setWorldName.WorldName;
                 }
             }
-        }
+        }
+
+        private void deleteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            DeleteButton_Click(sender, e);
+        }
     }
 }
