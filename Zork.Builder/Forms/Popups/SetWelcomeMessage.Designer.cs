@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.WelcomeMessageTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
+            this.gameViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -46,6 +49,7 @@
             // 
             // WelcomeMessageTextBox
             // 
+            this.WelcomeMessageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gameViewModelBindingSource, "WelcomeMessage", true));
             this.WelcomeMessageTextBox.Location = new System.Drawing.Point(12, 45);
             this.WelcomeMessageTextBox.Name = "WelcomeMessageTextBox";
             this.WelcomeMessageTextBox.Size = new System.Drawing.Size(289, 20);
@@ -73,6 +77,10 @@
             this.okButton.Text = "&Ok";
             this.okButton.UseVisualStyleBackColor = true;
             // 
+            // gameViewModelBindingSource
+            // 
+            this.gameViewModelBindingSource.DataSource = typeof(Zork.Builder.GameViewModel);
+            // 
             // SetWelcomeMessageForm
             // 
             this.AcceptButton = this.okButton;
@@ -89,6 +97,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Set Welcome Message";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +109,6 @@
         private System.Windows.Forms.TextBox WelcomeMessageTextBox;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.BindingSource gameViewModelBindingSource;
     }
 }

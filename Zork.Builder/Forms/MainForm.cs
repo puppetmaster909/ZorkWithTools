@@ -48,6 +48,12 @@ namespace Zork.Builder
                 SouthNeighbor.Enabled = isGameLoaded;
                 EastNeighbor.Enabled = isGameLoaded;
                 WestNeighbor.Enabled = isGameLoaded;
+                welcomeMessageToolStripMenuItem1.Enabled = isGameLoaded;
+                worldNameToolStripMenuItem1.Enabled = isGameLoaded;
+                printToolStripMenuItem.Enabled = isGameLoaded;
+                deleteToolStripMenuItem2.Enabled = isGameLoaded;
+                saveAsToolStripMenuItem.Enabled = isGameLoaded;
+                saveToolStripMenuItem.Enabled = isGameLoaded;
             }
         }
 
