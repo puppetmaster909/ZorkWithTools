@@ -17,6 +17,8 @@ namespace Zork.Builder
         //public GameViewModel ViewModel { get; set; }
         private GameViewModel mViewModel;
         private bool isGameLoaded;
+        public string WelcomeMessage;
+        public string WorldName;
 
         private GameViewModel ViewModel
         {
@@ -185,5 +187,27 @@ namespace Zork.Builder
         {
             DeleteButton_Click(sender, e);
         }
+
+        private void welcomeMessageToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (SetWelcomeMessageForm setWelcomeMessage = new SetWelcomeMessageForm())
+            {
+                if (setWelcomeMessage.ShowDialog() == DialogResult.OK)
+                {
+                    WelcomeMessage = setWelcomeMessage.WelcomeMessage;
+                }
+            }
+        }
+
+        private void worldNameToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (Forms.Popups.SetWorldName setWorldName = new Forms.Popups.SetWorldName())
+            {
+                if (setWorldName.ShowDialog() == DialogResult.OK)
+                {
+                    WorldName = setWorldName.WorldName;
+                }
+            }
+        }
     }
 }

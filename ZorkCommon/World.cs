@@ -31,7 +31,8 @@ namespace Zork.Common
 
         [JsonProperty]
         private string StartingLocation { get; set; }
-
+        public string WelcomeMessage;
+        public string WorldName;
         private Dictionary<string, Room> mRoomsByName;
     }
 }
