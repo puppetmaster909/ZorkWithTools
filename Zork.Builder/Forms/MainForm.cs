@@ -194,7 +194,7 @@ namespace Zork.Builder
             {
                 if (setWelcomeMessage.ShowDialog() == DialogResult.OK)
                 {
-                    WelcomeMessage = setWelcomeMessage.WelcomeMessage;
+                    ViewModel.Game.World.WelcomeMessage = setWelcomeMessage.WelcomeMessage;
                 }
             }
         }
@@ -205,7 +205,7 @@ namespace Zork.Builder
             {
                 if (setWorldName.ShowDialog() == DialogResult.OK)
                 {
-                    WorldName = setWorldName.WorldName;
+                    ViewModel.Game.World.WorldName = setWorldName.WorldName;
                 }
             }
         }

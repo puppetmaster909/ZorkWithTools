@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Zork.Common
 {
-    //[JsonConverter(typeof(RoomConverter))]
+    [JsonConverter(typeof(RoomConverter))]
     public class Room : IEquatable<Room>//, INotifyPropertyChanged
     {
         //public event PropertyChangedEventHandler PropertyChanged;

@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Zork.Common
 {
-    /*public class RoomConverter : JsonConverter
+    public class RoomConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType) => objectType.IsAssignableFrom(typeof(Room));
 
@@ -35,5 +35,5 @@ namespace Zork.Common
 
             roomObject.WriteTo(writer);
         }
-    }*/
+    }
 }

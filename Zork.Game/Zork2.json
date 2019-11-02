@@ -1,6 +1,6 @@
 {
   "World": {
-    "WelcomeMessage": null,
+    "WelcomeMessage": "asdf",
     "WorldName": null,
     "Rooms": [
       {
