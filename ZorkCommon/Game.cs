@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 using System.IO;
+using System.ComponentModel;
 
 namespace Zork.Common
 {
-    public class Game
+    public class Game : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public World World { get; private set; }
 
         [JsonIgnore]
@@ -20,6 +23,12 @@ namespace Zork.Common
         {
             World = world;
             Player = player;
+        }
+
+        public Game()
+        {
+            World = new World();
+            Player = new Player();
         }
 
         public void Run()

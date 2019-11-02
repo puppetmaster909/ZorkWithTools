@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace Zork.Common
 {
-    public class Player
+    public class Player : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public World World { get; }
 
         [JsonIgnore]
@@ -23,6 +26,12 @@ namespace Zork.Common
             {
                 Location = World?.RoomsByName.GetValueOrDefault(value);
             }
+        }
+
+        public Player()
+        {
+            World = new World();
+            LocationName = "";
         }
 
         public Player (World world, string startingLocation)
