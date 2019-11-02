@@ -7,13 +7,10 @@ using System.ComponentModel;
 
 namespace Zork.Common
 {
-    //[JsonConverter(typeof(RoomConverter))]
-    public class Room : IEquatable<Room>//, INotifyPropertyChanged
+    [JsonConverter(typeof(RoomConverter))]
+    public class Room : IEquatable<Room>, INotifyPropertyChanged
     {
-        //public event PropertyChangedEventHandler PropertyChanged;
-        
-        //[JsonProperty(Order = 1)]
-        //public string Name { get; private set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Room(string name, string description, Dictionary<Directions, string> neighborNames)
         {
@@ -62,6 +59,17 @@ namespace Zork.Common
                                                                  where room != null
                                                                  select (Direction: entry.Key, Room: room))
                                                                  .ToDictionary(pair => pair.Direction, pair => pair.Room);
+
+        public void BuildNeighborsFromNames(World world)
+        {
+            Neighbors = (from entry in NeighborNames
+                         let room = world.RoomsByName.GetValueOrDefault(entry.Value)
+                         where room != null
+                         select (Direction: entry.Key, Room: room))
+                         .ToDictionary(pair => pair.Direction, pair => pair.Room);
+
+            NeighborNames.Clear();
+        }
 
         public bool Equals(Room other)
         {

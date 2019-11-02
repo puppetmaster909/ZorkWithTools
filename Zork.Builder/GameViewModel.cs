@@ -16,8 +16,8 @@ namespace Zork.Builder
 
         [JsonIgnore]
         public string FileName { get; set; }
-        public string WelcomeMessage;
-        public string WorldName;
+        public string WelcomeMessage { get; set; }
+        public string WorldName { get; set; }
         public Common.Game Game
         {
             get => mGame;

@@ -44,10 +44,16 @@ namespace Zork.Builder
                 DeleteButton.Enabled = isGameLoaded;
                 NameTextBox.Enabled = isGameLoaded;
                 LookTextBox.Enabled = isGameLoaded;
-                NorthNeighbor.Enabled = isGameLoaded;
-                SouthNeighbor.Enabled = isGameLoaded;
-                EastNeighbor.Enabled = isGameLoaded;
-                WestNeighbor.Enabled = isGameLoaded;
+                //NorthNeighbor.Enabled = isGameLoaded;
+                //SouthNeighbor.Enabled = isGameLoaded;
+                //EastNeighbor.Enabled = isGameLoaded;
+                //WestNeighbor.Enabled = isGameLoaded;
+                welcomeMessageToolStripMenuItem1.Enabled = isGameLoaded;
+                worldNameToolStripMenuItem1.Enabled = isGameLoaded;
+                printToolStripMenuItem.Enabled = isGameLoaded;
+                deleteToolStripMenuItem2.Enabled = isGameLoaded;
+                saveAsToolStripMenuItem.Enabled = isGameLoaded;
+                saveToolStripMenuItem.Enabled = isGameLoaded;
             }
         }
 
@@ -194,7 +200,7 @@ namespace Zork.Builder
             {
                 if (setWelcomeMessage.ShowDialog() == DialogResult.OK)
                 {
-                    WelcomeMessage = setWelcomeMessage.WelcomeMessage;
+                    ViewModel.Game.World.WelcomeMessage = setWelcomeMessage.WelcomeMessage;
                 }
             }
         }
@@ -205,7 +211,7 @@ namespace Zork.Builder
             {
                 if (setWorldName.ShowDialog() == DialogResult.OK)
                 {
-                    WorldName = setWorldName.WorldName;
+                    ViewModel.Game.World.WorldName = setWorldName.WorldName;
                 }
             }
         }

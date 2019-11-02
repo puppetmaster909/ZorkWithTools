@@ -25,7 +25,8 @@ namespace Zork.Common
 
             foreach (Room room in Rooms)
             {
-                room.UpdateNeighbors(this);
+                //room.UpdateNeighbors(this);
+                room.BuildNeighborsFromNames(this);
             }
         }
 
