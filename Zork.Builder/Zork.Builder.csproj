@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\NeighborsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NeighborsControl.Designer.cs">
+      <DependentUpon>NeighborsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Popups\AddRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameViewModel.cs" />
+    <EmbeddedResource Include="Controls\NeighborsControl.resx">
+      <DependentUpon>NeighborsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\AddRoom.resx">
       <DependentUpon>AddRoom.cs</DependentUpon>
     </EmbeddedResource>

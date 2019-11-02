@@ -44,10 +44,10 @@ namespace Zork.Builder
                 DeleteButton.Enabled = isGameLoaded;
                 NameTextBox.Enabled = isGameLoaded;
                 LookTextBox.Enabled = isGameLoaded;
-                NorthNeighbor.Enabled = isGameLoaded;
-                SouthNeighbor.Enabled = isGameLoaded;
-                EastNeighbor.Enabled = isGameLoaded;
-                WestNeighbor.Enabled = isGameLoaded;
+                //NorthNeighbor.Enabled = isGameLoaded;
+                //SouthNeighbor.Enabled = isGameLoaded;
+                //EastNeighbor.Enabled = isGameLoaded;
+                //WestNeighbor.Enabled = isGameLoaded;
                 welcomeMessageToolStripMenuItem1.Enabled = isGameLoaded;
                 worldNameToolStripMenuItem1.Enabled = isGameLoaded;
                 printToolStripMenuItem.Enabled = isGameLoaded;
