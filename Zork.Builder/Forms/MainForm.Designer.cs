@@ -401,7 +401,7 @@
             // 
             // neighborsControl4
             // 
-            this.neighborsControl4.Location = new System.Drawing.Point(75, 145);
+            this.neighborsControl4.Location = new System.Drawing.Point(75, 140);
             this.neighborsControl4.Name = "neighborsControl4";
             this.neighborsControl4.NeighborDirections = Zork.Common.Directions.South;
             this.neighborsControl4.Size = new System.Drawing.Size(84, 53);

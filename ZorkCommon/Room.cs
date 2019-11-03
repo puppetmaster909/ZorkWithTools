@@ -12,6 +12,11 @@ namespace Zork.Common
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public Room()
+        {
+
+        }
+
         public Room(string name, string description, Dictionary<Directions, string> neighborNames)
         {
             Name = name;
@@ -72,6 +77,11 @@ namespace Zork.Common
         }
 
         public bool Equals(Room other)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TryGetValue(Directions neighborDirections, out Room neighborRoom)
         {
             throw new NotImplementedException();
         }

@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.NorthNeighbor = new System.Windows.Forms.ComboBox();
+            this.neighborSelectComboBox = new System.Windows.Forms.ComboBox();
             this.neighborDirectionTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // NorthNeighbor
+            // neighborSelectComboBox
             // 
-            this.NorthNeighbor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.neighborSelectComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NorthNeighbor.FormattingEnabled = true;
-            this.NorthNeighbor.Location = new System.Drawing.Point(3, 29);
-            this.NorthNeighbor.Name = "NorthNeighbor";
-            this.NorthNeighbor.Size = new System.Drawing.Size(111, 21);
-            this.NorthNeighbor.TabIndex = 12;
-            this.NorthNeighbor.SelectedIndexChanged += new System.EventHandler(this.NorthNeighbor_SelectedIndexChanged);
+            this.neighborSelectComboBox.FormattingEnabled = true;
+            this.neighborSelectComboBox.Location = new System.Drawing.Point(3, 29);
+            this.neighborSelectComboBox.Name = "neighborSelectComboBox";
+            this.neighborSelectComboBox.Size = new System.Drawing.Size(111, 21);
+            this.neighborSelectComboBox.TabIndex = 12;
+            this.neighborSelectComboBox.SelectedIndexChanged += new System.EventHandler(this.NorthNeighbor_SelectedIndexChanged);
             // 
             // neighborDirectionTextBox
             // 
@@ -59,7 +59,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.neighborDirectionTextBox);
-            this.Controls.Add(this.NorthNeighbor);
+            this.Controls.Add(this.neighborSelectComboBox);
             this.Name = "NeighborsControl";
             this.Size = new System.Drawing.Size(118, 53);
             this.ResumeLayout(false);
@@ -69,7 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox NorthNeighbor;
+        private System.Windows.Forms.ComboBox neighborSelectComboBox;
         private System.Windows.Forms.TextBox neighborDirectionTextBox;
     }
 }
