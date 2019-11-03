@@ -12,6 +12,11 @@ namespace Zork.Common
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public Room()
+        {
+
+        }
+
         public Room(string name, string description, Dictionary<Directions, string> neighborNames)
         {
             Name = name;

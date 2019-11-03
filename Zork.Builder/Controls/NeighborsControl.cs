@@ -13,6 +13,43 @@ namespace Zork.Builder.Controls
 {
     public partial class NeighborsControl : UserControl
     {
+        private static readonly Room NoRoom = new Room() { Name = "None", Description = "None"};
+
+        public Room NeighborRoom 
+        {
+            get => (Room)neighborSelectComboBox.SelectedItem;
+            set => neighborSelectComboBox.SelectedItem = value;
+        }
+
+        private World mWorld;
+        public World World
+        {
+            get => mWorld;
+            set
+            {
+                if (mWorld != value)
+                {
+                    mWorld = value;
+                    if (mWorld != null)
+                    {
+                        var rooms = new BindingList<Room>(World.Rooms);
+                        rooms.Insert(0, NoRoom);
+                        neighborSelectComboBox.DataSource = rooms;
+
+                        /*if (mWorld.Rooms.TryGetValue(NeighborDirections, out Room NeighborRoom))
+                        {
+
+                        }*/
+
+                        NeighborRoom = NoRoom;
+                    }
+                    else
+                    {
+                        neighborSelectComboBox.DataSource = null;
+                    }
+                }
+            }
+        }
 
         public Directions NeighborDirections
         {
