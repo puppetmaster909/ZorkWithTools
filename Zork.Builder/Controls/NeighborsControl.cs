@@ -21,27 +21,29 @@ namespace Zork.Builder.Controls
             set => neighborSelectComboBox.SelectedItem = value;
         }
 
-        private World mWorld;
-        public World World
+        private Room mRoom;
+        public Room Room
         {
-            get => mWorld;
+            get => mRoom;
             set
             {
-                if (mWorld != value)
+                if (mRoom != value)
                 {
-                    mWorld = value;
-                    if (mWorld != null)
+                    mRoom = value;
+                    if (mRoom != null)
                     {
-                        var rooms = new BindingList<Room>(World.Rooms);
+                        var rooms = new List<Room>(mRoom.Neighbors.Values);
                         rooms.Insert(0, NoRoom);
                         neighborSelectComboBox.DataSource = rooms;
 
-                        /*if (mWorld.Rooms.TryGetValue(NeighborDirections, out Room NeighborRoom))
+                        if (mRoom.TryGetValue(NeighborDirections, out Room neighborRoom))
                         {
-
-                        }*/
-
-                        NeighborRoom = NoRoom;
+                            NeighborRoom = neighborRoom;
+                        }
+                        else
+                        {
+                            NeighborRoom = NoRoom;
+                        }
                     }
                     else
                     {

@@ -51,6 +51,11 @@ namespace Zork.Common
             return lhs.Name == rhs.Name;
         }
 
+        public bool TryGetValue(Directions neighborDirections, out Room neighborRoom)
+        {
+            throw new NotImplementedException();
+        }
+
         public static bool operator !=(Room lhs, Room rhs) => !(lhs == rhs);
 
         public override bool Equals(object obj) => obj is Room room ? this == room : false;
