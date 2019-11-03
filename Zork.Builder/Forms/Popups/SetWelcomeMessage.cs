@@ -37,5 +37,10 @@ namespace Zork.Builder
         {
             okButton.Enabled = !string.IsNullOrEmpty(WelcomeMessage);
         }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

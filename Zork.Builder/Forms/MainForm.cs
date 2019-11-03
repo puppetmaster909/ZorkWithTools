@@ -180,7 +180,15 @@ namespace Zork.Builder
 
         private void AddRoomButton_Click(object sender, EventArgs e)
         {
-            ViewModel.Rooms.Add(new Common.Room("New Room", "New Description", new Dictionary<Common.Directions, string>()));
+            using (Zork.Builder.Forms.Popups.AddRoom createNewRoom = new Zork.Builder.Forms.Popups.AddRoom())
+            {
+                if (createNewRoom.ShowDialog() == DialogResult.OK)
+                {
+                    ViewModel.Rooms.Add(new Common.Room(createNewRoom.RoomName, createNewRoom.RoomDescription, new Dictionary<Common.Directions, string>()));
+                }
+            }
+
+            
         }
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
