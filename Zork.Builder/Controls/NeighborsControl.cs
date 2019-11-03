@@ -36,6 +36,7 @@ namespace Zork.Builder.Controls
                         rooms.Insert(0, NoRoom);
                         neighborSelectComboBox.DataSource = rooms;
 
+
                         if (mRoom.TryGetValue(NeighborDirections, out Room neighborRoom))
                         {
                             NeighborRoom = neighborRoom;

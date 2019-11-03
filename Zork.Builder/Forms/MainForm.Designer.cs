@@ -66,10 +66,10 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.gameViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.neighborsGroupBox = new System.Windows.Forms.GroupBox();
-            this.neighborsControl1 = new Zork.Builder.Controls.NeighborsControl();
-            this.neighborsControl2 = new Zork.Builder.Controls.NeighborsControl();
-            this.neighborsControl3 = new Zork.Builder.Controls.NeighborsControl();
-            this.neighborsControl4 = new Zork.Builder.Controls.NeighborsControl();
+            this.southNeighborControl = new Zork.Builder.Controls.NeighborsControl();
+            this.northNeighborControl = new Zork.Builder.Controls.NeighborsControl();
+            this.westNeighborControl = new Zork.Builder.Controls.NeighborsControl();
+            this.eastNeighborControl = new Zork.Builder.Controls.NeighborsControl();
             this.roomsGroupBox = new System.Windows.Forms.GroupBox();
             this.roomDetailsGroupBox = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
@@ -252,6 +252,7 @@
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
@@ -265,6 +266,7 @@
             // 
             // toolStripTextBox2
             // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             // 
@@ -364,10 +366,10 @@
             this.neighborsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.neighborsGroupBox.Controls.Add(this.neighborsControl4);
-            this.neighborsGroupBox.Controls.Add(this.neighborsControl3);
-            this.neighborsGroupBox.Controls.Add(this.neighborsControl2);
-            this.neighborsGroupBox.Controls.Add(this.neighborsControl1);
+            this.neighborsGroupBox.Controls.Add(this.southNeighborControl);
+            this.neighborsGroupBox.Controls.Add(this.northNeighborControl);
+            this.neighborsGroupBox.Controls.Add(this.westNeighborControl);
+            this.neighborsGroupBox.Controls.Add(this.eastNeighborControl);
             this.neighborsGroupBox.Location = new System.Drawing.Point(238, 240);
             this.neighborsGroupBox.Name = "neighborsGroupBox";
             this.neighborsGroupBox.Size = new System.Drawing.Size(233, 205);
@@ -375,37 +377,45 @@
             this.neighborsGroupBox.TabStop = false;
             this.neighborsGroupBox.Text = "Neighbors";
             // 
-            // neighborsControl1
+            // southNeighborControl
             // 
-            this.neighborsControl1.Location = new System.Drawing.Point(6, 81);
-            this.neighborsControl1.Name = "neighborsControl1";
-            this.neighborsControl1.NeighborDirections = Zork.Common.Directions.East;
-            this.neighborsControl1.Size = new System.Drawing.Size(84, 53);
-            this.neighborsControl1.TabIndex = 0;
+            this.southNeighborControl.Location = new System.Drawing.Point(75, 140);
+            this.southNeighborControl.Name = "southNeighborControl";
+            this.southNeighborControl.NeighborDirections = Zork.Common.Directions.South;
+            this.southNeighborControl.NeighborRoom = null;
+            this.southNeighborControl.Room = null;
+            this.southNeighborControl.Size = new System.Drawing.Size(84, 53);
+            this.southNeighborControl.TabIndex = 3;
             // 
-            // neighborsControl2
+            // northNeighborControl
             // 
-            this.neighborsControl2.Location = new System.Drawing.Point(143, 81);
-            this.neighborsControl2.Name = "neighborsControl2";
-            this.neighborsControl2.NeighborDirections = Zork.Common.Directions.West;
-            this.neighborsControl2.Size = new System.Drawing.Size(84, 53);
-            this.neighborsControl2.TabIndex = 1;
+            this.northNeighborControl.Location = new System.Drawing.Point(75, 19);
+            this.northNeighborControl.Name = "northNeighborControl";
+            this.northNeighborControl.NeighborDirections = Zork.Common.Directions.North;
+            this.northNeighborControl.NeighborRoom = null;
+            this.northNeighborControl.Room = null;
+            this.northNeighborControl.Size = new System.Drawing.Size(84, 53);
+            this.northNeighborControl.TabIndex = 2;
             // 
-            // neighborsControl3
+            // westNeighborControl
             // 
-            this.neighborsControl3.Location = new System.Drawing.Point(75, 19);
-            this.neighborsControl3.Name = "neighborsControl3";
-            this.neighborsControl3.NeighborDirections = Zork.Common.Directions.North;
-            this.neighborsControl3.Size = new System.Drawing.Size(84, 53);
-            this.neighborsControl3.TabIndex = 2;
+            this.westNeighborControl.Location = new System.Drawing.Point(143, 81);
+            this.westNeighborControl.Name = "westNeighborControl";
+            this.westNeighborControl.NeighborDirections = Zork.Common.Directions.West;
+            this.westNeighborControl.NeighborRoom = null;
+            this.westNeighborControl.Room = null;
+            this.westNeighborControl.Size = new System.Drawing.Size(84, 53);
+            this.westNeighborControl.TabIndex = 1;
             // 
-            // neighborsControl4
+            // eastNeighborControl
             // 
-            this.neighborsControl4.Location = new System.Drawing.Point(75, 140);
-            this.neighborsControl4.Name = "neighborsControl4";
-            this.neighborsControl4.NeighborDirections = Zork.Common.Directions.South;
-            this.neighborsControl4.Size = new System.Drawing.Size(84, 53);
-            this.neighborsControl4.TabIndex = 3;
+            this.eastNeighborControl.Location = new System.Drawing.Point(6, 81);
+            this.eastNeighborControl.Name = "eastNeighborControl";
+            this.eastNeighborControl.NeighborDirections = Zork.Common.Directions.East;
+            this.eastNeighborControl.NeighborRoom = null;
+            this.eastNeighborControl.Room = null;
+            this.eastNeighborControl.Size = new System.Drawing.Size(84, 53);
+            this.eastNeighborControl.TabIndex = 0;
             // 
             // roomsGroupBox
             // 
@@ -500,10 +510,10 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
         private System.Windows.Forms.GroupBox neighborsGroupBox;
-        private Controls.NeighborsControl neighborsControl1;
-        private Controls.NeighborsControl neighborsControl4;
-        private Controls.NeighborsControl neighborsControl3;
-        private Controls.NeighborsControl neighborsControl2;
+        private Controls.NeighborsControl eastNeighborControl;
+        private Controls.NeighborsControl southNeighborControl;
+        private Controls.NeighborsControl northNeighborControl;
+        private Controls.NeighborsControl westNeighborControl;
         private System.Windows.Forms.GroupBox roomsGroupBox;
         private System.Windows.Forms.GroupBox roomDetailsGroupBox;
     }

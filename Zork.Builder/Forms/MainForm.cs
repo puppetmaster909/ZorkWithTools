@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
+using Zork.Builder.Controls;
+using Zork.Common;
 
 namespace Zork.Builder
 {
@@ -19,6 +21,8 @@ namespace Zork.Builder
         private bool isGameLoaded;
         public string WelcomeMessage;
         public string WorldName;
+
+        private Dictionary<Directions, NeighborsControl> mNeighborControlMap;
 
         private GameViewModel ViewModel
         {
@@ -62,6 +66,14 @@ namespace Zork.Builder
             InitializeComponent();
             ViewModel = new GameViewModel();
             IsGameLoaded = false;
+
+            mNeighborControlMap = new Dictionary<Directions, NeighborsControl>
+                {
+                    {Directions.North, northNeighborControl},
+                    {Directions.South, southNeighborControl},
+                    {Directions.East, eastNeighborControl},
+                    {Directions.West, westNeighborControl}
+                };
         }
 
         // Exit from File dropdown
@@ -87,6 +99,13 @@ namespace Zork.Builder
                 ViewModel.FileName = OpenFileDialog.FileName;
                 ViewModel.Game = Common.Game.Load(ViewModel.FileName);
                 roomsBindingSource.DataSource = ViewModel.Rooms;
+
+                Room selectedRoom = RoomListBox.SelectedItem as Room;
+                foreach (NeighborsControl control in mNeighborControlMap.Values)
+                {
+                    control.NeighborRoom = selectedRoom;
+                }
+
                 IsGameLoaded = true;
             }
         }
@@ -141,6 +160,12 @@ namespace Zork.Builder
         private void RoomListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DeleteButton.Enabled = RoomListBox.SelectedItem != null;
+
+            Room selectedRoom = RoomListBox.SelectedItem as Room;
+            foreach (NeighborsControl control in mNeighborControlMap.Values)
+            {
+                control.NeighborRoom = selectedRoom;
+            }
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
