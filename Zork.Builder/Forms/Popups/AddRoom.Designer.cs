@@ -52,6 +52,7 @@
             this.RoomNameTextbox.Name = "RoomNameTextbox";
             this.RoomNameTextbox.Size = new System.Drawing.Size(220, 20);
             this.RoomNameTextbox.TabIndex = 1;
+            this.RoomNameTextbox.TextChanged += new System.EventHandler(this.RoomNameTextbox_TextChanged);
             // 
             // RoomDescriptionTextbox
             // 
@@ -60,6 +61,7 @@
             this.RoomDescriptionTextbox.Name = "RoomDescriptionTextbox";
             this.RoomDescriptionTextbox.Size = new System.Drawing.Size(220, 53);
             this.RoomDescriptionTextbox.TabIndex = 3;
+            this.RoomDescriptionTextbox.TextChanged += new System.EventHandler(this.RoomDescriptionTextbox_TextChanged);
             // 
             // label2
             // 
@@ -80,6 +82,7 @@
             this.okButton.TabIndex = 5;
             this.okButton.Text = "&Ok";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cancelButton
             // 
@@ -108,6 +111,7 @@
             this.Name = "AddRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add a New Room";
+            this.Load += new System.EventHandler(this.AddRoom_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
