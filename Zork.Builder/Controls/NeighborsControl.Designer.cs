@@ -36,6 +36,7 @@
             // 
             this.neighborSelectComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.neighborSelectComboBox.DisplayMember = "Name";
             this.neighborSelectComboBox.FormattingEnabled = true;
             this.neighborSelectComboBox.Location = new System.Drawing.Point(3, 29);
             this.neighborSelectComboBox.Name = "neighborSelectComboBox";
