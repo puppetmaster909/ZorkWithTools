@@ -9,10 +9,17 @@ namespace Zork.Game
             const string defaultGameFileName = "Zork.json";
             string gameFileName = (args.Length > 0 ? args[(int)CommandLineArguments.GameFileName] : defaultGameFileName);
 
-            Common.Game game = Common.Game.Load(gameFileName);
-            Console.WriteLine("Welcome to Zork!");
-            game.Run();
-            Console.WriteLine("Thank you for playing!");
+            ConsoleOutputService output = new ConsoleOutputService();
+            ConsoleInputService input = new ConsoleInputService();
+            Common.Game game = Common.Game.Load(gameFileName, output, input);
+
+            while (game.IsRunning)
+            {
+                output.Write("\n> ");
+                input.ProcessInput();
+            }
+
+            output.WriteLine("Thank you for playing!");
         }
 
         private enum CommandLineArguments
