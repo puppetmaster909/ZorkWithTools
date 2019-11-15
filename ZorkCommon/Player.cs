@@ -8,14 +8,48 @@ namespace Zork.Common
 {
     public class Player : INotifyPropertyChanged
     {
+        private int mScore;
+        private int moves;
+        private Room location;
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public event EventHandler<int> ScoreChanged;
+        public event EventHandler<int> MovesChanged;
+        public event EventHandler<string> LocationChanged;
 
         public World World { get; }
 
-        public int Moves { get; set; }
+        public int Score
+        {
+            get => mScore;
+            set
+            {
+                mScore = value;
+                ScoreChanged?.Invoke(this, Score);
+            }
+        }
+
+        public int Moves
+        {
+            get => moves;
+            set
+            {
+                moves = value;
+                MovesChanged?.Invoke(this, Moves);
+            }
+        }
 
         [JsonIgnore]
-        public Room Location { get; private set; }
+        public Room Location
+        {
+            get => location; 
+            private set
+            {
+                location = value;
+                LocationChanged?.Invoke(this, Location.Name);
+            }
+        }
 
         [JsonIgnore]
         public string LocationName
@@ -30,13 +64,7 @@ namespace Zork.Common
             }
         }
 
-        public Player()
-        {
-            World = new World();
-            LocationName = "";
-        }
-
-        public Player (World world, string startingLocation)
+        public Player(World world, string startingLocation)
         {
             World = world;
             LocationName = startingLocation;
@@ -51,7 +79,7 @@ namespace Zork.Common
             }
 
             return isValidMove;
-        }  
+        }
     }
 
     public enum Directions
