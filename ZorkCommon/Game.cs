@@ -6,13 +6,24 @@ namespace Zork.Common
 {
     public class Game
     {
+        public EventHandler<bool> HasQuit;
+        private bool isRunning;
+
         public World World { get; set; }
 
         [JsonIgnore]
         public Player Player { get; private set; }
 
         [JsonIgnore]
-        public bool IsRunning { get; private set; }
+        public bool IsRunning
+        {
+            get => isRunning; 
+            private set
+            {
+                isRunning = value;
+                HasQuit?.Invoke(this, IsRunning);
+            }
+        }
 
         [JsonIgnore]
         public CommandManager CommandManager { get; }
@@ -42,10 +53,25 @@ namespace Zork.Common
 
                 new Command("EAST", new string[] { "EAST", "E" }, MovementCommands.East),
 
-                new Command("WEST", new string[] { "WEST", "W" }, MovementCommands.West)
+                new Command("WEST", new string[] { "WEST", "W" }, MovementCommands.West),
+
+                new Command("REWARD", new string[] {"REWARD", "R"}, Reward),
+
+                new Command("SCORE", "SCORE", Score )
             };
 
             CommandManager = new CommandManager(commands);
+        }
+
+        private static void Reward(Game game, CommandContext commandContext)
+        {
+            game.Player.Score++;
+            game.Output.WriteLine("You have been rewarded 1 pont!");
+        }
+
+        private static void Score(Game game, CommandContext commandContext)
+        {
+            game.Output.WriteLine($"Your score would be {game.Player.Score}, in {game.Player.Moves} moves(s).");
         }
 
         public static Game Load(string filename, IOutputService output, IInputService input)
