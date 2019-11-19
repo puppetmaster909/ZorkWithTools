@@ -11,7 +11,7 @@ Zork.Unity/[Tt]emp/
 Zork.Unity/[Oo]bj/
 Zork.Unity/[Bb]uild/
 Zork.Unity/[Bb]uilds/
-Zork.Unity/[Ll]ogs/
+Zork.Unity/[Ll]ogs/F
 Zork.Unity/[Mm]emoryCaptures/
 
 # Never ignore Asset meta data
@@ -251,6 +251,7 @@ PublishScripts/
 *.snupkg
 # The packages folder can be ignored because of Package Restore
 **/[Pp]ackages/*
+!/Zork.Unity/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
